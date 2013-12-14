@@ -8,21 +8,20 @@
 
 @foreach (var agency in Model)
 {
-    <text> [[Main Page]] | [[Emergency agencies using social media]] | [[@agency.State emergency agencies using social media]] Social media contacts sourced from '''Humanity Road''' [http://www.humanityroad.org/]
+    <text> [[Main Page]] | [[Emergency agencies using social media]] | [[@StateAbbreviations.Abbreviations[agency.State] emergency agencies using social media]] Social media contacts sourced from '''Humanity Road''' [http://www.humanityroad.org/]
     <br/>
         ==@agency.AgencyType==<br/>
-@if (@agency.Twitter1 != null)
-{
-    <text>*@agency.Twitter1*<br/></text>
-}
-@if (@agency.Twitter2 != null)
-{
-    <text>*@agency.Twitter2*<br/></text>
-}
-@if (@agency.Twitter3 != null)
-{
-    <text>*@agency.Twitter3*<br/></text>
-}
 
-</text>
+        @NotNull.Write("Twitter",agency.Twitter1)
+        @NotNull.Write("Twitter",agency.Twitter2) 
+        @NotNull.Write("Twitter",agency.Twitter3)
+        @NotNull.Write("Facebook",agency.Facebook1)
+        @NotNull.Write("Facebook",agency.Facebook2)
+        @NotNull.Write("Facebook",agency.Facebook3)
+        @NotNull.Write("Web",agency.WebSite1)
+        @NotNull.Write("Web",agency.WebSite2)
+        @NotNull.Write("Web",agency.WebSite3)
+        @NotNull.Write("City",agency.City)
+        @NotNull.Write("County",agency.County)
+    </text>
 }

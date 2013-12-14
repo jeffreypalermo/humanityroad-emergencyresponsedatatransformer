@@ -1,11 +1,10 @@
-﻿@helper Write(string[] input)
+﻿@helper Write(string label, string value)
 {
-    foreach (var s in input)
-    {
-        if (s != null)
+
+        if (value != null)
 {
-    <text>*s*<br/></text>
-}
+    <text>*@label: [@value]*<br/></text>
+
     }
 }
 
