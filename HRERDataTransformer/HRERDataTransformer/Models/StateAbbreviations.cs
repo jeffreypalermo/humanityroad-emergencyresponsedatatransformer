@@ -67,7 +67,8 @@ namespace HRERDataTransformer.Models
 			{ "MP", "Northern Mariana Islands" },
 			{ "PW", "Palau" },
 			{ "PR", "Puerto Rico" },
-			{ "VI", "Virgin Islands" }
+			{ "VI", "Virgin Islands" },
+			{ "MOI", "Minor Outlying Islands" }
 		};
 	}
 }
