@@ -2,26 +2,41 @@
 @using HRERDataTransformer.Models
 @{
     ViewBag.Title = "Home Page";
-    
+    var currentState = "";
+    var currentAgency = "";
 }
+
 
 
 @foreach (var agency in Model)
 {
-    <text> [[Main Page]] | [[Emergency agencies using social media]] | [[@StateAbbreviations.Abbreviations[agency.State] emergency agencies using social media]] Social media contacts sourced from '''Humanity Road''' [http://www.humanityroad.org/]
-    <br/>
-        ==@agency.AgencyType==<br/>
+    if (currentState != agency.State)
+    {
+        <text>[[Main Page]] | [[Emergency agencies using social media]] | [[@StateAbbreviations.Abbreviations[agency.State] emergency agencies using social media]] Social media contacts sourced from '''Humanity Road''' [http://www.humanityroad.org/]</text>
+    }
 
-        @NotNull.WriteTwitterUrl("Twitter", agency.Twitter1)
-        @NotNull.WriteTwitterUrl("Twitter", agency.Twitter2) 
-        @NotNull.WriteTwitterUrl("Twitter", agency.Twitter3)
-        @NotNull.Write("Facebook",agency.Facebook1)
-        @NotNull.Write("Facebook",agency.Facebook2)
-        @NotNull.Write("Facebook",agency.Facebook3)
-        @NotNull.Write("Web",agency.WebSite1)
-        @NotNull.Write("Web",agency.WebSite2)
-        @NotNull.Write("Web",agency.WebSite3)
-        @NotNull.Write("City",agency.City)
-        @NotNull.Write("County",agency.County)
+    if (currentAgency != agency.AgencyType)
+    {
+<text>==@agency.AgencyType==</text>
+    }
+    <text> 
+            <br/>
+            ===@agency.Name===<br/>
+
+            @NotNull.WriteTwitterUrl("Twitter", agency.Twitter1)
+            @NotNull.WriteTwitterUrl("Twitter", agency.Twitter2) 
+            @NotNull.WriteTwitterUrl("Twitter", agency.Twitter3)
+            @NotNull.Write("Facebook", agency.Facebook1)
+            @NotNull.Write("Facebook", agency.Facebook2)
+            @NotNull.Write("Facebook", agency.Facebook3)
+            @NotNull.Write("Web", agency.WebSite1)
+            @NotNull.Write("Web", agency.WebSite2)
+            @NotNull.Write("Web", agency.WebSite3)
+            @NotNull.Write("City", agency.City)
+            @NotNull.Write("County", agency.County)
     </text>
+
+    currentState = agency.State;
+    currentAgency = agency.AgencyType;
 }
+

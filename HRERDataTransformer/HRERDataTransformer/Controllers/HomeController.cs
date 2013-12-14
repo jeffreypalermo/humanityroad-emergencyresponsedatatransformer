@@ -17,7 +17,7 @@ namespace HRERDataTransformer.Controllers
 			var conn =
 				"Data Source=guadalupe.cloudapp.net;Initial Catalog=humanityroad;Persist Security Info=True;User ID=humanityroad;Password=Password1!";
 			DataTable dt = new DataTable("content");
-			var command = new SqlCommand("select * from content order by state", new SqlConnection(conn));
+			var command = new SqlCommand("select * from content order by state, AgencyType", new SqlConnection(conn));
 			DataAdapter da = new SqlDataAdapter(command);
 
 			var ds = new DataSet();
