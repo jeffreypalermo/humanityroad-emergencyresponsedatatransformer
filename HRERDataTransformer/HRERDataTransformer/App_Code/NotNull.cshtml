@@ -8,3 +8,13 @@
     }
 }
 
+@helper WriteTwitterUrl(string label, string value)
+{
+
+    if (value != null)
+    {
+        <text>*@label: [http://twitter.com/#!/@value.Substring(1) @value]*<br /></text>
+
+    }
+}
+
