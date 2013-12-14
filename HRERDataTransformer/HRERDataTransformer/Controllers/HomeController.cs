@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HRERDataTransformer.App_Data;
 
 namespace HRERDataTransformer.Controllers
 {
@@ -10,7 +14,22 @@ namespace HRERDataTransformer.Controllers
 	{
 		public ActionResult Index()
 		{
-			return View();
+			var conn =
+				"Data Source=guadalupe.cloudapp.net;Initial Catalog=humanityroad;Persist Security Info=True;User ID=humanityroad;Password=Password1!";
+			DataTable dt = new DataTable("content");
+			var command = new SqlCommand("select * from content", new SqlConnection(conn));
+			DataAdapter da = new SqlDataAdapter(command);
+
+			var ds = new DataSet();
+			da.Fill(ds);
+			dt = ds.Tables[0];
+
+			var reader = new AgencyReader(dt);
+			var agencies = reader.GetAgencies();
+
+
+
+			return View(agencies);
 		}
 
 		public ActionResult About()
