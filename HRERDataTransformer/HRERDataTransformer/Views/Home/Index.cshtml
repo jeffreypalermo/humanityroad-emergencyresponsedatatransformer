@@ -12,7 +12,7 @@
 {
     if (currentState != agency.State)
     {
-        <text>[[Main Page]] | [[Emergency agencies using social media]] | [[@StateAbbreviations.Abbreviations[agency.State] emergency agencies using social media]] Social media contacts sourced from '''Humanity Road''' [http://www.humanityroad.org/]</text>
+        <text>[[Main Page]] | [[Emergency agencies using social media]] | [[@StateAbbreviations.Abbreviations[agency.State] emergency agencies using social media]] Social media contacts sourced from '''Humanity Road''' [http://www.humanityroad.org/] and published by Clear Measure [http://clear-measure.com] and Humanitarian Toolbox [http://htbox.org]</text><br>
     }
 
     if (currentAgency != agency.AgencyType)
@@ -26,12 +26,12 @@
             @NotNull.WriteTwitterUrl("Twitter", agency.Twitter1)
             @NotNull.WriteTwitterUrl("Twitter", agency.Twitter2) 
             @NotNull.WriteTwitterUrl("Twitter", agency.Twitter3)
-            @NotNull.Write("Facebook", agency.Facebook1)
-            @NotNull.Write("Facebook", agency.Facebook2)
-            @NotNull.Write("Facebook", agency.Facebook3)
-            @NotNull.Write("Web", agency.WebSite1)
-            @NotNull.Write("Web", agency.WebSite2)
-            @NotNull.Write("Web", agency.WebSite3)
+            @NotNull.WriteUrl("Facebook", agency.Facebook1)
+            @NotNull.WriteUrl("Facebook", agency.Facebook2)
+            @NotNull.WriteUrl("Facebook", agency.Facebook3)
+            @NotNull.WriteUrl("Website", agency.WebSite1)
+            @NotNull.WriteUrl("Website", agency.WebSite2)
+            @NotNull.WriteUrl("Website", agency.WebSite3)
             @NotNull.Write("City", agency.City)
             @NotNull.Write("County", agency.County)
     </text>

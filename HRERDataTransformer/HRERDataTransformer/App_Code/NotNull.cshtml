@@ -18,3 +18,15 @@
     }
 }
 
+@helper WriteUrl(string label, string value)
+{
+
+    if (value != null)
+    {
+        <text>*@label: [@value @value]*<br /></text>
+    }
+}
+
+
+
+
